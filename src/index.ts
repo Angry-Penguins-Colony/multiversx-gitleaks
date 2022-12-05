@@ -5,12 +5,6 @@ import yargs from "yargs";
 import { IRule } from "./rules/IRule";
 import { IReport } from "./rules/IReport";
 
-console.log('Hello world!')
-
-// TODO: check if .pem
-// TODO: check if .log
-
-
 const argv = yargs(hideBin(process.argv))
     .command('<path>', 'Repo path')
     .demandCommand(1)
