@@ -12,15 +12,26 @@ export class NoPemRule implements IRule {
             file: "*.pem"
         })
 
-        // remove duplicates
-        return commits.map(c => c.files)
-            .flat()
-            .filter((v, i, a) => a.indexOf(v) === i)
-            .map(r => {
-                return {
-                    file: r,
-                    problem: "Pem file found"
-                } as IReport;
-            });
+        const reports: IReport[] = [];
+
+        for (const commit of commits) {
+            for (const file of commit.files) {
+
+
+                const indexOf = commit.files.indexOf(file)
+                const status = commit.status[indexOf];
+
+                // ignore deleted files
+                if (status == "D") continue;
+
+                reports.push({
+                    file: file,
+                    hash: commit.hash,
+                    problem: "No .pem files allowed"
+                });
+            }
+        }
+
+        return reports;
     }
 }
