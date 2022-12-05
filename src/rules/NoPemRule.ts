@@ -6,11 +6,12 @@ export class NoPemRule implements IRule {
         return "No pem";
     }
 
-    pass(): void {
+    pass(rootDir: string): void {
         const commits = GitLog({
-            repo: __dirname,
+            repo: rootDir,
             number: 9_999_999,
             execOptions: { maxBuffer: 1000 * 1024 },
+            file: "*.pem"
         })
 
         console.log(commits);

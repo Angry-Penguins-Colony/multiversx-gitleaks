@@ -1,4 +1,4 @@
 export interface IRule {
     getName(): string;
-    pass(): void;
+    pass(rootDir: string): void;
 }
