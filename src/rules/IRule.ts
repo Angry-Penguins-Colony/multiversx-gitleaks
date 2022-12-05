@@ -1,4 +1,6 @@
+import { IReport } from "./IReport";
+
 export interface IRule {
     getName(): string;
-    pass(rootDir: string): void;
+    pass(rootDir: string): IReport[];
 }
