@@ -7,7 +7,7 @@ export class NoPemRule implements IRule {
         return "No pem";
     }
 
-    pass(rootDir: string): IReport[] {
+    async pass(rootDir: string): Promise<IReport[]> {
         const commits = gitlog({
             repo: rootDir,
             number: 9_999_999,

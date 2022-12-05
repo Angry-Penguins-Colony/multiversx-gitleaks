@@ -1,7 +1,7 @@
 import { IReport } from "./IReport";
 import { IRule } from "./IRule";
 
-export function checkRules(rootDir: string, rules: IRule[]) {
+export async function checkRules(rootDir: string, rules: IRule[]) {
 
     console.log("Checking repo: " + rootDir);
 
@@ -9,7 +9,7 @@ export function checkRules(rootDir: string, rules: IRule[]) {
 
     for (const rule of rules) {
         console.log("Running rule " + rule.getName());
-        const ruleReport = rule.pass(rootDir);
+        const ruleReport = await rule.pass(rootDir);
 
         totalReports.push(...ruleReport);
 
@@ -26,7 +26,7 @@ export function checkRules(rootDir: string, rules: IRule[]) {
     }
     else {
         console.log("Some rules failed");
-        console.log(totalReports);
+        console.table(totalReports);
     }
 
 }
