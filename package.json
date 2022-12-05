@@ -1,0 +1,18 @@
+{
+  "name": "tool-elrond-sensitives",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node --optimize_for_size out/index.js",
+    "start:dev": "ts-node src/index.ts",
+    "start:dev:watch": "nodemon src/index.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^18.11.10",
+    "typescript": "^4.9.3"
+  }
+}
