@@ -1,5 +1,5 @@
 import { IRule } from "./IRule";
-import GitLog from "gitlog";
+import gitlog from "gitlog";
 import { IReport } from "./IReport";
 
 export class NoPemRule implements IRule {
@@ -8,7 +8,7 @@ export class NoPemRule implements IRule {
     }
 
     pass(rootDir: string): IReport[] {
-        const commits = GitLog({
+        const commits = gitlog({
             repo: rootDir,
             number: 9_999_999,
             execOptions: { maxBuffer: 1000 * 1024 },
