@@ -3,9 +3,6 @@ import gitlog from "gitlog";
 import { IReport } from "./IReport";
 
 export class NoPemRule implements IRule {
-    getName(): string {
-        return "No pem";
-    }
 
     async pass(rootDir: string): Promise<IReport[]> {
         const commits = gitlog({

@@ -8,17 +8,9 @@ export async function checkRules(rootDir: string, rules: IRule[]) {
     const totalReports: IReport[] = [];
 
     for (const rule of rules) {
-        console.log("Running rule " + rule.getName());
         const ruleReport = await rule.pass(rootDir);
 
         totalReports.push(...ruleReport);
-
-        if (ruleReport.length == 0) {
-            console.log("Rule " + rule.getName() + " passed");
-        }
-        else {
-            console.log("Rule " + rule.getName() + " failed");
-        }
     }
 
     if (totalReports.length == 0) {
@@ -28,5 +20,4 @@ export async function checkRules(rootDir: string, rules: IRule[]) {
         console.log("Some rules failed");
         console.table(totalReports);
     }
-
 }

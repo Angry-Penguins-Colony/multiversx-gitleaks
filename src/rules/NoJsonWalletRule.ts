@@ -5,10 +5,6 @@ import util from 'util';
 const exec = util.promisify(require('child_process').exec);
 
 export class NoJsonWalletRule implements IRule {
-    getName(): string {
-        return "no json wallet";
-    }
-
     async pass(rootDir: string): Promise<IReport[]> {
         const commits = gitlog({
             repo: rootDir,
