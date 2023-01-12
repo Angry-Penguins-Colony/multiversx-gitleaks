@@ -7,6 +7,19 @@ To use with https://github.com/trufflesecurity/trufflehog
 
 # How to use ?
 
+## Install and build
+
+Fist install :
+```
+npm install 
+```
+
+Then, build : 
+```
+npm run build
+```
+
+Now, you can use this tool with the following command :
 ```
 npm run start GIT_REPO_PATH
 ```
