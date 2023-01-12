@@ -5,6 +5,12 @@ Report .pem or .json wallets in git history.
 
 To use with https://github.com/trufflesecurity/trufflehog
 
+# How to use ?
+
+```
+npm run start GIT_REPO_PATH
+```
+
 # LICENSE
 
 This is free and unencumbered software released into the public domain.
